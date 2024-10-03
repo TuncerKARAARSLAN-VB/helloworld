@@ -58,3 +58,5 @@ The error message `docker: unrecognized service` typically means that the Docker
    You'll need to log out and back in for this to take effect.
 
 If you follow these steps and still encounter issues, let me know!
+
+![image](https://github.com/user-attachments/assets/5079306b-a7ab-4d91-b133-21b3470e557e)
