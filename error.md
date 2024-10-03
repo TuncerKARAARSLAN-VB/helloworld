@@ -107,3 +107,12 @@ Bu hata, Docker kurulumunuzun gerekli bağımlılıkları bulamadığını veya 
    ```
 
 Bu adımlar sorununuzu çözmeli. Eğer hala sorun yaşıyorsanız, aldığınız hata mesajlarını paylaşabilirsiniz, böylece daha fazla yardımcı olabilirim.
+
+
+
+sudo apt install docker-ce docker-ce-cli containerd.io
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+E: Package 'docker-ce' has no installation candidate
+E: Package 'docker-ce-cli' has no installation candidate
