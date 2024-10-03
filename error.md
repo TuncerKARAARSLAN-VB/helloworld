@@ -116,3 +116,45 @@ WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
 
 E: Package 'docker-ce' has no installation candidate
 E: Package 'docker-ce-cli' has no installation candidate
+
+
+Aldığınız hata mesajı, `docker-ce` ve `docker-ce-cli` paketlerinin bulunamadığını gösteriyor. Bu durumda, Docker’ın resmi deposunun düzgün bir şekilde eklenip eklenmediğini kontrol etmemiz gerekiyor. Aşağıdaki adımları izleyin:
+
+1. **Paket Depolarını Güncelleyin**:
+   Docker deposunun eklenip eklenmediğini kontrol edin ve güncellemeleri alın:
+   ```bash
+   sudo apt update
+   ```
+
+2. **Docker GPG Anahtarını Ekleyin**:
+   Eğer henüz yapmadıysanız, Docker GPG anahtarını ekleyin:
+   ```bash
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   ```
+
+3. **Docker Deposu Ekleme**:
+   Eğer Docker deposu eklenmemişse, aşağıdaki komutu kullanarak ekleyin:
+   ```bash
+   sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   ```
+
+4. **Paket Listesini Güncelleyin**:
+   Değişikliklerden sonra paket listesini güncelleyerek mevcut paketleri kontrol edin:
+   ```bash
+   sudo apt update
+   ```
+
+5. **Docker’ı Yükleme**:
+   Artık Docker’ı yüklemeyi deneyebilirsiniz:
+   ```bash
+   sudo apt install docker-ce docker-ce-cli containerd.io
+   ```
+
+6. **Yüklemeyi Kontrol Edin**:
+   Yükleme tamamlandığında, Docker’ın düzgün bir şekilde kurulduğunu kontrol edin:
+   ```bash
+   docker --version
+   ```
+
+Bu adımlar sorununuzu çözmeli. Eğer hala sorun yaşıyorsanız, sisteminizin sürümü ve dağıtımı hakkında daha fazla bilgi verirseniz, daha spesifik yardımcı olabilirim.
+
