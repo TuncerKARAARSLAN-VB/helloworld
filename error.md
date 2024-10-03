@@ -60,3 +60,50 @@ The error message `docker: unrecognized service` typically means that the Docker
 If you follow these steps and still encounter issues, let me know!
 
 ![image](https://github.com/user-attachments/assets/5079306b-a7ab-4d91-b133-21b3470e557e)
+
+
+Bu hata, Docker kurulumunuzun gerekli bağımlılıkları bulamadığını veya başka bir bağımlılık çatışması olduğunu gösterir. Bu durumu çözmek için aşağıdaki adımları deneyebilirsiniz:
+
+1. **Paket Listesini Güncelleyin**:
+   Öncelikle paket listenizi güncelleyin:
+   ```bash
+   sudo apt update
+   ```
+
+2. **Kırık Paketleri Düzeltin**:
+   Kırık paketleri düzeltmek için şu komutu çalıştırın:
+   ```bash
+   sudo apt --fix-broken install
+   ```
+
+3. **Gerekli Bağımlılıkları Yükleyin**:
+   Docker'ı yüklemek için gerekli bağımlılıkları kurmayı deneyin:
+   ```bash
+   sudo apt install containerd
+   ```
+
+4. **Docker’ı Yeniden Yükleyin**:
+   Eğer yukarıdaki adımlar işe yaramazsa, Docker'ı kaldırıp yeniden yüklemeyi deneyin:
+   ```bash
+   sudo apt remove docker.io
+   sudo apt install docker.io
+   ```
+
+5. **Depoları Kontrol Edin**:
+   Eğer hala sorun yaşıyorsanız, sisteminizin yazılım kaynaklarını kontrol edin. Gerekirse resmi Docker deposunu eklemeyi deneyebilirsiniz. Ubuntu için şu adımları izleyin:
+
+   ```bash
+   sudo apt update
+   sudo apt install apt-transport-https ca-certificates curl software-properties-common
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   sudo apt update
+   ```
+
+6. **Docker’ı Yükleyin**:
+   Son olarak, Docker’ı yüklemeyi tekrar deneyin:
+   ```bash
+   sudo apt install docker-ce docker-ce-cli containerd.io
+   ```
+
+Bu adımlar sorununuzu çözmeli. Eğer hala sorun yaşıyorsanız, aldığınız hata mesajlarını paylaşabilirsiniz, böylece daha fazla yardımcı olabilirim.
